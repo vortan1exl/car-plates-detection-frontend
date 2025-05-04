@@ -27,7 +27,7 @@ const StudentAuth: React.FC = () => {
       useAuthStore.getState().setUserFromToken(data.accessToken); 
       const { role } = useAuthStore.getState().user!;
       if(role === 'STUDENT'){
-        navigate('/student/home');
+        navigate('/student/parking');
       }
     } catch (err) {
       setError('Неверный код или email');

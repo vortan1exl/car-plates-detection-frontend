@@ -1,0 +1,32 @@
+.profile-container {
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: #0d1117;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #f3f4f6;
+    max-width: 750px;
+}
+
+.profile-container h2,
+.profile-container h3 {
+    color: #f3f4f6;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #374151;
+    padding-bottom: 0.5rem;
+    text-align:center;
+}
+
+.profile-container p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.profile-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+
+

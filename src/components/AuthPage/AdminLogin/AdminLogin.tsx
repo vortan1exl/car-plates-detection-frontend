@@ -8,7 +8,6 @@ const AdminLogin: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { setAuthenticated } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +19,7 @@ const AdminLogin: React.FC = () => {
         navigate('/admin/home');
       }
       else if (role === 'PERSONNEL') {
-        navigate('/personnel/home');
+        navigate('/personnel/pakring');
       }
     } catch (err) {
       setError('Неверный email или пароль');

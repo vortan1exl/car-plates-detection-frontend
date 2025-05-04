@@ -4,8 +4,10 @@ import AdminLogin from '../components/AuthPage/AdminLogin/AdminLogin';
 import { RoleProtectedRoute } from "./RoleProtectedRoute";
 import LandingPage from '../components/AuthPage/LandingPage/LandingPage';
 import AdminHome from '../components/AdminHome'
-import StudentHome from '../components/StudentHome'
+import StudentHome from '../components/StudentParking'
 import PersonnelHome from '../components/PersonnelHome'
+import StudentVehicleHistory from '../components/Student/VehicleHistory/StudentVehicleHistory';
+import { StudentProfile } from '../components/Student/StudentProfile';
 
 
 const routes = [
@@ -14,13 +16,29 @@ const routes = [
   <Route key="admin-login" path="/admin-login" element={<AdminLogin />} />,
   <Route
     key="student-home"
-    path="/student/home"
+    path="/student/parking"
     element={
       <RoleProtectedRoute allowedRoles={["STUDENT"]}>
         <StudentHome/>
       </RoleProtectedRoute>
     }
   />,
+  <Route
+    key="student-home"
+    path="/student/profile"
+    element={
+      <RoleProtectedRoute allowedRoles={["STUDENT"]}>
+        <StudentProfile/>
+      </RoleProtectedRoute>
+    }
+  />,
+  <Route key="student-vehicle-history"
+   path="/student/vehicle-history"
+   element={<RoleProtectedRoute allowedRoles={["STUDENT"]}>
+    <StudentVehicleHistory />
+    </RoleProtectedRoute>} 
+   />,
+
   <Route
   key="admin-home"
   path="/admin/home"
@@ -32,7 +50,7 @@ const routes = [
   />,
   <Route
     key="personnel-home"
-    path="/personnel/home"
+    path="/personnel/pakring"
     element={
       <RoleProtectedRoute allowedRoles={["PERSONNEL"]}>
         <PersonnelHome />

@@ -1,4 +1,10 @@
 import axios from 'axios';
+import { VehicleStatus } from "../types/types";
+import { VehicleHistory } from "../types/types";
+import { ParkStatus } from "../types/types";
+import { ProfileStudent } from "../types/types";
+
+
 
 const api = axios.create({
   baseURL: 'http://localhost:8081/api',
@@ -62,5 +68,38 @@ export const signOut = async () => {
   localStorage.removeItem('accessToken');
   localStorage.removeItem('refreshToken');
 };
+
+export const getVisitCount = async (): Promise<number> => {
+  const response = await api.get('/student/visit_count');
+  return response.data;
+};
+
+
+export const getVehicleStatus = async (): Promise<VehicleStatus[]> => {
+  const response = await api.get("/student/vehicle_status");
+  return response.data;
+};
+
+export const getStudentVehicleHistory = async (): Promise<VehicleHistory[]> => {
+  const response = await api.get('/student/vehicle_history');
+  return response.data;
+};
+
+export const getParkingStatus = async (): Promise<ParkStatus> => {
+  const response = await api.get('/student/status_parking');
+  return response.data;
+};
+
+export const getProfileStudent = async (): Promise<ProfileStudent> => {
+  const response = await api.get('/student/profile');
+  return response.data;
+};
+
+export const getAverageTime = async (): Promise<number> => {
+  const response = await api.get('/student/average_visit_time');
+  return response.data;
+};
+
+
 
 export default api;
