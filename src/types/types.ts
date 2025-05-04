@@ -42,3 +42,13 @@ export interface VehicleDTO {
     color: string;
 }
 
+export interface ProfilePersonnel {
+    email: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    phone: string;
+    faculty: string;
+    position: string;
+    vehicleDTO: VehicleDTO[];
+}

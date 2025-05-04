@@ -3,7 +3,7 @@ import { signOut } from '../../services/api';
 import { useAuthStore } from '../../stores/authStore';
 import './NavMenu.css';
 
-export const NavMenu: React.FC = () =>{
+export const NavMenuStudent: React.FC = () =>{
     const navigate = useNavigate();
   const { setAuthenticated } = useAuthStore();
 

@@ -8,6 +8,8 @@ import StudentHome from '../components/StudentParking'
 import PersonnelHome from '../components/PersonnelHome'
 import StudentVehicleHistory from '../components/Student/VehicleHistory/StudentVehicleHistory';
 import { StudentProfile } from '../components/Student/StudentProfile';
+import { PersonnelProfile } from '../components/Personnel/PersonnelProfile';
+import { PersonnelVehicleHistory } from '../components/Personnel/PersonnelVehicleHistory';
 
 
 const routes = [
@@ -50,13 +52,28 @@ const routes = [
   />,
   <Route
     key="personnel-home"
-    path="/personnel/pakring"
+    path="/personnel/parking"
     element={
       <RoleProtectedRoute allowedRoles={["PERSONNEL"]}>
         <PersonnelHome />
       </RoleProtectedRoute>
     }
   />,
+  <Route
+    key="student-home"
+    path="/personnel/profile"
+    element={
+      <RoleProtectedRoute allowedRoles={["PERSONNEL"]}>
+        <PersonnelProfile/>
+      </RoleProtectedRoute>
+    }
+  />,
+  <Route key="student-vehicle-history"
+   path="/personnel/vehicle-history"
+   element={<RoleProtectedRoute allowedRoles={["PERSONNEL"]}>
+    <PersonnelVehicleHistory/>
+    </RoleProtectedRoute>}
+   />,
 ];
 
 export default routes;

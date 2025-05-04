@@ -19,7 +19,7 @@ const AdminLogin: React.FC = () => {
         navigate('/admin/home');
       }
       else if (role === 'PERSONNEL') {
-        navigate('/personnel/pakring');
+        navigate('/personnel/parking');
       }
     } catch (err) {
       setError('Неверный email или пароль');

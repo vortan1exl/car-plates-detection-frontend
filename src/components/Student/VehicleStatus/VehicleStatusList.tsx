@@ -14,7 +14,7 @@ export const VehicleStatusList: React.FC = () => {
   }, []);
 
   if (error) return <p>Ошибка: {error}</p>;
-  if (vehicles.length === 0) return <p>Загрузка...</p>;
+  if (vehicles.length === 0) return <p>У пользователя нет авто.</p>;
 
   return (
     <div className="table-wrapper">

@@ -3,6 +3,7 @@ import { VehicleStatus } from "../types/types";
 import { VehicleHistory } from "../types/types";
 import { ParkStatus } from "../types/types";
 import { ProfileStudent } from "../types/types";
+import { ProfilePersonnel } from "../types/types";
 
 
 
@@ -100,6 +101,10 @@ export const getAverageTime = async (): Promise<number> => {
   return response.data;
 };
 
+export const getProfilePersonnel = async (): Promise<ProfilePersonnel> => {
+  const response = await api.get('/personnel/profile');
+  return response.data;
+};
 
 
 export default api;
