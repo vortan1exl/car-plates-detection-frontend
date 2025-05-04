@@ -1,0 +1,40 @@
+.info-cards {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+
+}
+.mainPage{
+    background-color: #0d1117;
+    border-radius: 0.5rem;
+    margin: 1rem 1rem;
+    padding-bottom: 1px;
+    padding-top: 1px;
+
+}
+.moreMainPage{
+    margin: 2rem 2rem;
+}
+
+  
+.info-cards > * {
+    background-color: #21262d;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    color: #e5e7eb;
+}
+  
+.block-link {
+    all: unset;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #e5e7eb;
+    cursor: pointer;
+}
