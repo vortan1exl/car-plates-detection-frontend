@@ -1,4 +1,4 @@
-import { NavMenu } from './NavMenu/NavMenuStudent'
+import { NavMenuStudent } from './NavMenu/NavMenuStudent'
 import { VehicleStatusList } from './Student/VehicleStatus/VehicleStatusList';
 import { VisitCount } from './Student/VisitCount';
 import { ParkingStatus } from './Student/ParkingStatus';
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const StudentHome: React.FC = () => {
   return (
     <div>
-      <NavMenu/>
+      <NavMenuStudent/>
         <div className='mainPage'>
         <div className='moreMainPage'>
         <div className="info-cards">

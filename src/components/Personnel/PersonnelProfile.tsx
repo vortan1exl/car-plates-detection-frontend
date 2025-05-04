@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getProfileStudent } from "../../services/api";
-import { ProfileStudent } from "../../types/types";
-import { NavMenuStudent } from "../NavMenu/NavMenuStudent";
+import { getProfilePersonnel} from "../../services/api";
+import { ProfilePersonnel } from "../../types/types";
+import { NavMenuPersonnel } from "../NavMenu/NavMenuPersonnel";
 import './StudentProfile.css';
 
-export const StudentProfile: React.FC = () => {
-  const [profile, setProfile] = useState<ProfileStudent | null>(null);
+export const PersonnelProfile: React.FC = () => {
+  const [profile, setProfile] = useState<ProfilePersonnel | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    getProfileStudent()
+    getProfilePersonnel()
       .then((data) => setProfile(data))
       .catch((err) => setError(err.message));
   }, []);
@@ -19,16 +19,14 @@ export const StudentProfile: React.FC = () => {
 
   return (
     <div>
-    <NavMenuStudent/>
+    <NavMenuPersonnel/>
       <div className="profile-container">
-        <h2>Профиль студента</h2>
+        <h2>Профиль сотрудника</h2>
         <p><strong>ФИО:</strong> {profile.lastName} {profile.firstName} {profile.middleName}</p>
         <p><strong>Email:</strong> {profile.email}</p>
         <p><strong>Телефон:</strong> {profile.phone}</p>
-        <p><strong>Студенческий:</strong> {profile.student_card}</p>
         <p><strong>Факультет:</strong> {profile.faculty}</p>
-        <p><strong>Курс:</strong> {profile.course}</p>
-        <p><strong>Группа:</strong> {profile.groups}</p>
+        <p><strong>Должность:</strong> {profile.position}</p>
 
         <h3>Автомобили</h3>
         {profile.vehicleDTO.length === 0 ? (

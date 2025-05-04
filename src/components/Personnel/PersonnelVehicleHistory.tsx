@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getStudentVehicleHistory } from '../../../services/api';
-import {VehicleHistory} from '../../../types/types';
-import {NavMenuStudent} from '../../NavMenu/NavMenuStudent';
+import { getStudentVehicleHistory } from '../../services/api';
+import {VehicleHistory} from '../../types/types';
+import {NavMenuPersonnel} from '../NavMenu/NavMenuPersonnel';
 
 const PAGE_SIZE = 9;
 
 
-export const StudentVehicleHistory: React.FC = () => {
+export const PersonnelVehicleHistory: React.FC = () => {
   const [history, setHistory] = useState<VehicleHistory[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -48,7 +48,7 @@ export const StudentVehicleHistory: React.FC = () => {
   return (
     <div className="history-container">
       
-      <NavMenuStudent />
+      <NavMenuPersonnel/>
       
 
       <h2 className="history-title">История въездов</h2>
@@ -105,4 +105,4 @@ export const StudentVehicleHistory: React.FC = () => {
   );
 };
 
-export default StudentVehicleHistory;
+export default PersonnelVehicleHistory;

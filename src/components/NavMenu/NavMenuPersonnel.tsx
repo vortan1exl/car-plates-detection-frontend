@@ -3,7 +3,7 @@ import { signOut } from '../../services/api';
 import { useAuthStore } from '../../stores/authStore';
 import './NavMenu.css';
 
-export const NavMenuStudent: React.FC = () =>{
+export const NavMenuPersonnel: React.FC = () =>{
     const navigate = useNavigate();
   const { setAuthenticated } = useAuthStore();
 
@@ -17,7 +17,7 @@ export const NavMenuStudent: React.FC = () =>{
     }
   };
   const studentProfile = async () => {
-    navigate('/student/profile')
+    navigate('/personnel/profile')
   }
   const parking = async () => {
     navigate('/personnel/parking')
