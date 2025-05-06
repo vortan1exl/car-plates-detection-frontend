@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { VehicleStatus } from "../types/types";
+import { ParkingInfo, PersonnelArray, VehicleStatus } from "../types/types";
 import { VehicleHistory } from "../types/types";
 import { ParkStatus } from "../types/types";
 import { ProfileStudent } from "../types/types";
 import { ProfilePersonnel } from "../types/types";
+import { StudentArray } from "../types/types";
 
 
 
@@ -103,6 +104,36 @@ export const getAverageTime = async (): Promise<number> => {
 
 export const getProfilePersonnel = async (): Promise<ProfilePersonnel> => {
   const response = await api.get('/personnel/profile');
+  return response.data;
+};
+
+export const getAllStudent = async (): Promise<StudentArray[]> => {
+  const response = await api.get('/admin/all_student');
+  return response.data;
+};
+
+export const getAllPersonnel = async (): Promise<PersonnelArray[]> => {
+  const response = await api.get('/admin/all_personnel');
+  return response.data;
+};
+
+export const getParkingNow = async (): Promise<ParkingInfo[]> => {
+  const response = await api.get('/admin/get_vehicle_parking');
+  return response.data;
+};
+
+export const getParkingHistory = async (): Promise<ParkingInfo[]> => {
+  const response = await api.get('/admin/get_vehicle_history');
+  return response.data;
+};
+
+export const getStudentById = async (uuid: string): Promise<ProfileStudent> => {
+  const response = await api.get(`/admin/student/${uuid}`);
+  return response.data;
+};
+
+export const getPersonnelById = async (uuid: string): Promise<ProfilePersonnel> => {
+  const response = await api.get(`/admin/personnel/${uuid}`);
   return response.data;
 };
 

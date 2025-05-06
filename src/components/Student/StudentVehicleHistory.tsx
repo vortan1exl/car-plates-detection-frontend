@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getStudentVehicleHistory } from '../../../services/api';
-import {VehicleHistory} from '../../../types/types';
-import {NavMenuStudent} from '../../NavMenu/NavMenuStudent';
+import { getStudentVehicleHistory } from '../../services/api';
+import {VehicleHistory} from '../../types/types';
+import {NavMenuStudent} from '../NavMenu/NavMenuStudent';
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 3;
 
 
 export const StudentVehicleHistory: React.FC = () => {
@@ -50,13 +50,16 @@ export const StudentVehicleHistory: React.FC = () => {
       
       <NavMenuStudent />
       
+      <div className='mainPage'>
+      <div className='moreMainPage'>
+
 
       <h2 className="history-title">История въездов</h2>
       {error && <p>{error}</p>}
       {currentData.length === 0 ? (
         <p>История пуста.</p>
       ) : (
-        <div>
+        <div style={{ overflowX: 'auto' }}>
           <table className="history-table">
             <thead>
               <tr>
@@ -102,6 +105,9 @@ export const StudentVehicleHistory: React.FC = () => {
         </div>
       )}
     </div>
+    </div>
+    </div>
+
   );
 };
 

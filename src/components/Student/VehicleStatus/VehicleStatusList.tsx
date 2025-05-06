@@ -17,7 +17,7 @@ export const VehicleStatusList: React.FC = () => {
   if (vehicles.length === 0) return <p>У пользователя нет авто.</p>;
 
   return (
-    <div className="table-wrapper">
+    <div className="table-wrapper" style={{ overflowX: 'auto' }}>
       <table className="history-table">
         <thead>
           <tr>

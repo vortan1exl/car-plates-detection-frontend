@@ -1,4 +1,3 @@
-
 export interface VehicleStatus {
     carPlate: string;
     brand: string;
@@ -35,12 +34,6 @@ export interface ProfileStudent {
     vehicleDTO: VehicleDTO[];
 }
 
-export interface VehicleDTO {
-    carPlate: string;
-    brand: string;
-    model: string;
-    color: string;
-}
 
 export interface ProfilePersonnel {
     email: string;
@@ -51,4 +44,46 @@ export interface ProfilePersonnel {
     faculty: string;
     position: string;
     vehicleDTO: VehicleDTO[];
+}
+
+export interface VehicleDTO {
+    carPlate: string;
+    brand: string;
+    model: string;
+    color: string;
+}
+
+export interface StudentArray {
+    id: string;
+    email: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    phone: string;
+    student_card: string;
+    faculty: string;
+    course: number;
+    groups: string;
+}
+
+export interface PersonnelArray {
+    id: string;
+    email: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    phone: string;
+    faculty: string;
+    position: string;
+    isAdmin: boolean;
+}
+
+export interface ParkingInfo {
+    id: string;
+    carPlate: string;
+    brand: string;
+    model: string;
+    color: string;
+    entryTime: string;
+    exitTime: string;
 }
