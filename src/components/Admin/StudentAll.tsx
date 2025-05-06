@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { getStudentVehicleHistory } from '../../services/api';
-import {VehicleHistory} from '../../types/types';
-import {NavMenuPersonnel} from '../NavMenu/NavMenuPersonnel';
+import { useNavigate } from 'react-router-dom';
+import { getAllStudent } from '../../services/api';
+import { StudentArray } from '../../types/types';
+import { NavMenuAdmin } from '../NavMenu/NavMenuAdmin';
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 5;
 
 
-export const PersonnelVehicleHistory: React.FC = () => {
-  const [history, setHistory] = useState<VehicleHistory[]>([]);
+export const StudentAll: React.FC = () => {
+  const navigate = useNavigate();
+  const [history, setHistory] = useState<StudentArray[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [error, setError] = useState<string | null>(null);
@@ -15,7 +17,7 @@ export const PersonnelVehicleHistory: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getStudentVehicleHistory();
+        const data = await getAllStudent();
         if (Array.isArray(data)) {
           setHistory(data);
           setTotalPages(Math.ceil(data.length / PAGE_SIZE));
@@ -23,7 +25,7 @@ export const PersonnelVehicleHistory: React.FC = () => {
           console.error('Ожидался массив, но пришло:', data);
         }
       } catch (error) {
-        console.error('Ошибка при получении истории:', error);
+        console.error('Ошибка при получении студентов:', error);
         setError('Ошибка при получении данных');
       }
     };
@@ -45,15 +47,17 @@ export const PersonnelVehicleHistory: React.FC = () => {
     }
   };
 
+  const goToStudent = (uuid: string) => {
+    navigate(`/admin/student/${uuid}`);
+  };
+
   return (
     <div className="history-container">
-      
-      <NavMenuPersonnel/>
-      
+      <NavMenuAdmin/>
+
       <div className='mainPage'>
       <div className='moreMainPage'>
-
-      <h2 className="history-title">История въездов</h2>
+      <h2 className="history-title">Студенты</h2>
       {error && <p>{error}</p>}
       {currentData.length === 0 ? (
         <p>История пуста.</p>
@@ -62,25 +66,33 @@ export const PersonnelVehicleHistory: React.FC = () => {
           <table className="history-table">
             <thead>
               <tr>
-                <th>Номер</th>
-                <th>Марка</th>
-                <th>Модель</th>
-                <th>Цвет</th>
-                <th>Въезд</th>
-                <th>Выезд</th>
-                <th>Длительность</th>
+                <th>Почта</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Фамилия</th>
+                <th>Телефон</th>
+                <th>Студенческий билет</th>
+                <th>Факультет</th>
+                <th>Курс</th>
+                <th>Группа</th>
+                <td>Действие</td>
               </tr>
             </thead>
             <tbody>
               {currentData.map((entry, index) => (
                 <tr key={index}>
-                  <td>{entry.carPlate}</td>
-                  <td>{entry.brand}</td>
-                  <td>{entry.model}</td>
-                  <td>{entry.color}</td>
-                  <td>{new Date(entry.entryTime).toLocaleString()}</td>
-                  <td>{entry.exitTime ? new Date(entry.exitTime).toLocaleString() : ''}</td>
-                  <td>{entry.duration.replace('PT', '').toLowerCase()}</td>
+                  <td>{entry.email}</td>
+                  <td>{entry.firstName}</td>
+                  <td>{entry.middleName}</td>
+                  <td>{entry.lastName}</td>
+                  <td>{entry.phone}</td>
+                  <td>{entry.student_card}</td>
+                  <td>{entry.faculty}</td>
+                  <td>{entry.course}</td>
+                  <td>{entry.groups}</td>
+                  <td>
+                  <button className="navmenu-logout-button" onClick={() => goToStudent(entry.id)}>Открыть</button>
+                </td>
                 </tr>
               ))}
             </tbody>
@@ -106,7 +118,8 @@ export const PersonnelVehicleHistory: React.FC = () => {
     </div>
     </div>
     </div>
+
   );
 };
 
-export default PersonnelVehicleHistory;
+export default StudentAll;

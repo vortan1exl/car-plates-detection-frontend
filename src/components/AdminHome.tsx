@@ -1,8 +1,8 @@
-import { NavMenuAdmin } from './NavMenu/NavMenuAdmin'
+import ParkinNow from './Admin/ParkingNow'
 
 const AdminHome: React.FC = () => {
   return (
-    <NavMenuAdmin/>
+    <ParkinNow/>
   );
 };
 

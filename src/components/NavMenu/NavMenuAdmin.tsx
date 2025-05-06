@@ -16,15 +16,33 @@ export const NavMenuAdmin: React.FC = () =>{
       console.error('Ошибка при выходе:', err);
     }
   };
+  const adminProfile = async () => {
+    navigate('/admin/profile')
+  }
+  const adminStudent = async () => {
+    navigate('/admin/student')
+  }
+
+  const adminPersonnel = async () => {
+    navigate('/admin/personnel')
+  }
+  const adminParking = async () => {
+    navigate('/admin/home')
+  }
+  
+  const adminParkingLog = async () => {
+    navigate('/admin/parkinglog')
+  }
 
   return (
     <div>
       <nav className="navmenu-menu">
       <ol>
-        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={handleSignOut}>Студенты</button></li>
-        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={handleSignOut}>Персонал</button></li>
-        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={handleSignOut}>Парковка</button></li>
-        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={handleSignOut}>Лог парковки</button></li>
+        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={adminProfile}>Профиль</button></li>
+        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={adminStudent}>Студенты</button></li>
+        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={adminPersonnel}>Персонал</button></li>
+        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={adminParking}>Парковка</button></li>
+        <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={adminParkingLog}>Лог парковки</button></li>
         <li className="navmenu-menu-item"><button className='navmenu-logout-button' onClick={handleSignOut}>Выйти</button></li>
       </ol>
     </nav>
