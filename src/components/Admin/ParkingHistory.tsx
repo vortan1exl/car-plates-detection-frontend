@@ -50,7 +50,7 @@ export const ParkingHistory: React.FC = () => {
         <NavMenuAdmin/>
         <div className='mainPage'>
         <div className='moreMainPage'>
-        <h2 className="history-title">Парковка в данный момент</h2>
+        <h2 className="history-title">Логи парковки</h2>
         {error && <p>{error}</p>}
         {currentData.length === 0 ? (
             <p>История пуста.</p>

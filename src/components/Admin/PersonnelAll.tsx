@@ -73,7 +73,6 @@ export const PersonnelAll: React.FC = () => {
                 <th>Телефон</th>
                 <th>Факультет</th>
                 <th>Должность</th>
-                <th>Администратор?</th>
                 <td>Действие</td>
               </tr>
             </thead>
@@ -87,7 +86,6 @@ export const PersonnelAll: React.FC = () => {
                   <td>{entry.phone}</td>
                   <td>{entry.faculty}</td>
                   <td>{entry.position}</td>
-                  <td>{entry.isAdmin}</td>
                   <td>
                   <button className="navmenu-logout-button" onClick={() => goToPersonnel(entry.id)}>Открыть</button>
                   </td>
