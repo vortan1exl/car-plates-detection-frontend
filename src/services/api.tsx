@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ParkingInfo, PersonnelArray, VehicleStatus } from "../types/types";
+import { ParkingInfo, PersonnelArray, VehicleStatus, VehicleDTO } from "../types/types";
 import { VehicleHistory } from "../types/types";
 import { ParkStatus } from "../types/types";
 import { ProfileStudent } from "../types/types";
@@ -134,6 +134,37 @@ export const getStudentById = async (uuid: string): Promise<ProfileStudent> => {
 
 export const getPersonnelById = async (uuid: string): Promise<ProfilePersonnel> => {
   const response = await api.get(`/admin/personnel/${uuid}`);
+  console.log(response.data);
+  return response.data;
+};
+
+export const updateStudentById = async (uuid: string, StudentArray: StudentArray): Promise<StudentArray> => {
+  const response = await api.post(`/admin/update_student/${uuid}`, StudentArray);
+  return response.data;
+};
+
+export const updatePersonnelById = async (uuid: string, PersonnelArray: PersonnelArray): Promise<PersonnelArray> => {
+  const response = await api.post(`/admin/update_personnel/${uuid}`, PersonnelArray);
+  return response.data;
+};
+
+export const addVehicleToStudent = async (uuid: string, VehicleDTO: VehicleDTO): Promise<VehicleDTO> => {
+  const response = await api.post(`/admin/add_vehicle_for_student/${uuid}`, VehicleDTO);
+  return response.data;
+};
+
+export const addVehicleToPersonnel = async (uuid: string, VehicleDTO: VehicleDTO): Promise<VehicleDTO> => {
+  const response = await api.post(`/admin/add_vehicle_for_personnel/${uuid}`, VehicleDTO);
+  return response.data;
+};
+
+export const updateVehicle = async (uuid: string, VehicleDTO: VehicleDTO): Promise<VehicleDTO> => {
+  const response = await api.post(`/admin/update_vehicle/${uuid}`, VehicleDTO);
+  return response.data;
+};
+
+export const deleteVehicle = async (uuid: string): Promise<VehicleDTO> => {
+  const response = await api.delete(`/admin/delete_vehicle/${uuid}`);
   return response.data;
 };
 

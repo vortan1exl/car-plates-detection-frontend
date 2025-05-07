@@ -43,10 +43,14 @@ export interface ProfilePersonnel {
     phone: string;
     faculty: string;
     position: string;
+    vehicleDTOList: VehicleDTO[];
     vehicleDTO: VehicleDTO[];
 }
 
+
+
 export interface VehicleDTO {
+    id: string;
     carPlate: string;
     brand: string;
     model: string;

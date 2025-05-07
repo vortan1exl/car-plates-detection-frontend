@@ -34,16 +34,26 @@ export const StudentProfile: React.FC = () => {
         {profile.vehicleDTO.length === 0 ? (
           <p>Автомобили не зарегистрированы</p>
         ) : (
-          <ul>
-            {profile.vehicleDTO.map((vehicle, index) => (
-              <li key={index}>
-                <p><strong>Номер:</strong> {vehicle.carPlate}</p>
-                <p><strong>Марка:</strong> {vehicle.brand}</p>
-                <p><strong>Модель:</strong> {vehicle.model}</p>
-                <p><strong>Цвет:</strong> {vehicle.color}</p>
-              </li>
-            ))}
-          </ul>
+          <table className="history-table">
+            <thead>
+              <tr>
+                <th>Номер</th>
+                <th>Марка</th>
+                <th>Модель</th>
+                <th>Цвет</th>
+              </tr>
+            </thead>
+            <tbody>
+              {profile.vehicleDTO.map((vehicle, index) => (
+                <tr key={index}>
+                  <td>{vehicle.carPlate}</td>
+                  <td>{vehicle.brand}</td>
+                  <td>{vehicle.model}</td>
+                  <td>{vehicle.color}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </div>
