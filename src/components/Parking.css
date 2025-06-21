@@ -3,10 +3,9 @@
     gap: 1rem;
     margin: 1rem 0;
     flex-wrap: wrap;
-
 }
 .mainPage{
-    background-color: #0d1117;
+    background-color: #fff;
     border-radius: 0.5rem;
     margin: 1rem 1rem;
     padding-bottom: 1px;
@@ -19,14 +18,15 @@
 
   
 .info-cards > * {
-    background-color: #21262d;
+    background-color: #fff;
+    border: 1px solid #000;
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     flex: 1;
     min-width: 200px;
     text-align: center;
-    color: #e5e7eb;
+    color: #000;
 }
   
 .block-link {
@@ -35,6 +35,6 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    color: #e5e7eb;
+    color: #000;
     cursor: pointer;
 }

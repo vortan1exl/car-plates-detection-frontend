@@ -1,18 +1,18 @@
 .profile-container {
     margin: 1rem auto;
     padding: 2rem;
-    background-color: #0d1117;
+    background-color: #ffffff;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    color: #f3f4f6;
+    color: #000000;
     max-width: 750px;
 }
 
 .profile-container h2,
 .profile-container h3 {
-    color: #f3f4f6;
+    color: #000;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #374151;
+    border-bottom: 2px solid #000;
     padding-bottom: 0.5rem;
     text-align:center;
 }

@@ -7,7 +7,7 @@ export const VisitCount: React.FC = () => {
   
     useEffect(() => {
       getVisitCount()
-        .then((data) => setCount(data)) // ← теперь data — это просто число
+        .then((data) => setCount(data))
         .catch((err) => setError(err.message));
     }, []);
   
